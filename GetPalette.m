@@ -1,14 +1,25 @@
 function [palette] = GetPalette( varargin )
+%   GetPalette returns a color palette matrix of size Nx3
+%
+%   [ColorMap] = GetPalette('Palette Id') Returns a color palette
+%   [ColorMap] = GetPalette() Shows available color palettes
+%   [ColorMap] = GetPalette('Palette Id',indx) Returns a color palette
+%                based on the indx vector
+%   [PaletteIds] = GetPalette('GetPaletteIds') return the list of valid palette ids
+%
+%   Current valid palettes are: 'JCO','nejm','Lancet','Science','Nature','lines','aeb01','ETS'
 
-ValidPalettIds={'JCO','nejm','Lancet','Science','Nature','lines','aeb01'};
+ValidPalettIds={'JCO','nejm','Lancet','Science','Nature','lines','aeb01','ETS'};
 
-if nargin < 1 || ~any(strcmpi(varargin{1},ValidPalettIds))
-    palette = [];
+if nargin < 1 || ~any(strcmpi(varargin{1},[ValidPalettIds,'GetPaletteIds']) )
+    palette = ValidPalettIds;
     ShowPalette
     return
 else
     Id = varargin{1};
-    if strcmpi(Id,'JCO')
+    if strcmpi(Id,'GetPaletteIds')
+        palette = ValidPalettIds;
+    elseif strcmpi(Id,'JCO')
         palette = [
             0                   0.450980392156863   0.760784313725490
             0.937254901960784   0.752941176470588                   0
@@ -34,7 +45,7 @@ else
         
     elseif strcmpi(Id,'Lancet')
         palette = [
-            0   0.274509803921569   0.545098039215686
+            0                   0.274509803921569   0.545098039215686
             0.929411764705882                   0                   0
             0.258823529411765   0.709803921568627   0.250980392156863
             0                   0.600000000000000   0.705882352941177
@@ -80,7 +91,8 @@ else
             0.4940    0.1840    0.5560
             0.4660    0.6740    0.1880
             0.3010    0.7450    0.9330
-            0.6350    0.0780    0.1840];
+            0.6350    0.0780    0.1840
+            ];
         
     elseif strcmpi(Id,'aeb01') % My own color palette
         palette = [
@@ -96,9 +108,26 @@ else
             1.000       0.863       0.569
             0.933       0.298       0.592
             0.3010      0.7450      0.9330
-            0.231       0.231       0.231];        
+            0.231       0.231       0.231];   
+     elseif strcmpi(Id,'ETS') % Color palette for ETS paper
+        palette = [
+            0                   0.274509803921569   0.545098039215686
+            0.066666666666667   0.384313725490196   1.000000000000000
+            0.078431372549020   0.694117647058824   0.874509803921569
+            0.070588235294118   0.847058823529412   1.000000000000000
+            0.937254901960784   0.752941176470588                   0
+            0.996078431372549   0.560784313725490                   0
+            0.996078431372549   0.278431372549020                   0
+            0.6350              0.0780              0.1840
+            ];
+
     end
 end
+if nargin == 2
+    indx = varargin{2};
+    palette = palette(indx,:);
+end
+
 
 end
 

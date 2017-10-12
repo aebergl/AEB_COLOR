@@ -1,10 +1,9 @@
 function ShowPalette( )
 % Show my color palette
 % Code taken from https://www.mathworks.com/examples/matlab/community/19592-colormap_chart
-maps =  {'JCO','nejm','Lancet','Science','Nature','lines','aeb01'};
-
+maps=GetPalette('GetPaletteIds');
 % Number of color levels to create
-nLevels = 16;
+
 nMaps = length(maps);
 
 figure

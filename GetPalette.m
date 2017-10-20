@@ -9,7 +9,7 @@ function [palette] = GetPalette( varargin )
 %
 %   Current valid palettes are: 'JCO','nejm','Lancet','Science','Nature','lines','aeb01','ETS'
 
-ValidPalettIds={'JCO','nejm','Lancet','Science','Nature','lines','aeb01','ETS'};
+ValidPalettIds={'JCO','nejm','Lancet','Science','Nature','lines','aeb01','ETS01','ETS02'};
 
 if nargin < 1 || ~any(strcmpi(varargin{1},[ValidPalettIds,'GetPaletteIds']) )
     palette = ValidPalettIds;
@@ -109,7 +109,7 @@ else
             0.933       0.298       0.592
             0.3010      0.7450      0.9330
             0.231       0.231       0.231];   
-     elseif strcmpi(Id,'ETS') % Color palette for ETS paper
+     elseif strcmpi(Id,'ETS01') % Color palette for ETS paper
         palette = [
             0                   0.274509803921569   0.545098039215686
             0.066666666666667   0.384313725490196   1.000000000000000
@@ -120,6 +120,14 @@ else
             0.996078431372549   0.278431372549020                   0
             0.6350              0.0780              0.1840
             ];
+     elseif strcmpi(Id,'ETS02') % Color palette for ETS paper
+        palette = [
+            0.933       0.298       0.592
+            0           0.600       0.706
+            0.525       0.525       0.525
+            0.125       0.522       0.306
+            0.561       0.467       0
+        ];
 
     end
 end

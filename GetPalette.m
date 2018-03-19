@@ -7,9 +7,10 @@ function [palette] = GetPalette( varargin )
 %                based on the indx vector
 %   [PaletteIds] = GetPalette('GetPaletteIds') return the list of valid palette ids
 %
-%   Current valid palettes are: 'JCO','nejm','Lancet','Science','Nature','lines','aeb01','ETS'
+%   Current valid palettes are: 'JCO','nejm','Lancet','Science','Nature',
+%   'lines','aeb01','ETS01','ETS02','Yun_LAML'
 
-ValidPalettIds={'JCO','nejm','Lancet','Science','Nature','lines','aeb01','ETS01','ETS02'};
+ValidPalettIds={'JCO','nejm','Lancet','Science','Nature','lines','aeb01','ETS01','ETS02','Yun_LAML'};
 
 if nargin < 1 || ~any(strcmpi(varargin{1},[ValidPalettIds,'GetPaletteIds']) )
     palette = ValidPalettIds;
@@ -129,7 +130,21 @@ else
             0.125       0.522       0.306
             0.561       0.467       0
         ];
-
+   
+     elseif strcmpi(Id,'Yun_LAML') % Color palette for ETS paper
+        palette = [
+    
+            0.627450980392157   0.070588235294118   0.082352941176471
+            0.070588235294118   0.278431372549020   0.639215686274510
+            0.129411764705882   0.360784313725490   0.117647058823529
+            0.447058823529412                   0   0.360784313725490
+            0                   0                   0
+            0.792156862745098   0.556862745098039   0.388235294117647
+            0.847058823529412   0.682352941176471                   0
+            0.580392156862745   0.709803921568627   0.145098039215686
+            0.976470588235294   0.941176470588235                   0
+        ];
+    
     end
 end
 if nargin == 2

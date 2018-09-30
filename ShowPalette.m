@@ -28,7 +28,7 @@ for iMap = 1:nMaps
         'Curvature', [0 0])
     text(16, offset, sprintf(' %s', maps{iMap}), ...
         'VerticalAlignment', 'bottom', ...
-        'FontSize', 16)
+        'FontSize', 16,'Interpreter','none')
 end
 
 set(gcf, 'Color', 'w');

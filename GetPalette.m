@@ -8,9 +8,9 @@ function [palette] = GetPalette( varargin )
 %   [PaletteIds] = GetPalette('GetPaletteIds') return the list of valid palette ids
 %
 %   Current valid palettes are: 'JCO','nejm','Lancet','Science','Nature',
-%   'lines','aeb01','ETS01','ETS02','Yun_LAML'
+%   'lines','aeb01','ETS01','ETS02','Yun_LAML,'TCGA33'
 
-ValidPalettIds={'JCO','nejm','Lancet','Science','Nature','lines','aeb01','ETS01','ETS02','Yun_LAML'};
+ValidPalettIds={'JCO','nejm','Lancet','Science','Nature','lines','aeb01','ETS01','ETS02','Yun_LAML','TCGA33'};
 
 if nargin < 1 || ~any(strcmpi(varargin{1},[ValidPalettIds,'GetPaletteIds']) )
     palette = ValidPalettIds;
@@ -131,7 +131,7 @@ else
             0.561       0.467       0
         ];
    
-     elseif strcmpi(Id,'Yun_LAML') % Color palette for ETS paper
+     elseif strcmpi(Id,'Yun_LAML') % Color palette for Yun heatma
         palette = [
     
             0.627450980392157   0.070588235294118   0.082352941176471
@@ -144,6 +144,43 @@ else
             0.580392156862745   0.709803921568627   0.145098039215686
             0.976470588235294   0.941176470588235                   0
         ];
+     elseif strcmpi(Id,'TCGA33') % Color palette 33 TCGA tumor types 
+        palette = [
+            
+    0.8275    0.6980    0.2863
+    1.0000    0.8667    0.8745
+    1.0000    0.3176    0.6235
+    1.0000    0.7608    0.4941
+         0    0.3765    0.5647
+    0.6000    0.8902    0.9804
+    0.1961    0.4235    0.6941
+         0    0.5725    0.7529
+    0.7922    0.4275    0.6745
+    0.6000    0.8392    0.7255
+    1.0000    0.2431    0.2000
+    1.0000    0.7451    0.7529
+    0.9922    0.5333    0.5373
+    0.5647    0.3725    0.2314
+    0.8863    0.6902    0.8157
+    0.8157    0.8353    0.8824
+    0.8510    0.8157    0.8980
+    0.6863    0.6039    0.7804
+    0.4078    0.2824    0.5961
+    0.9294    0.5608    0.2353
+    0.4745    0.5647    0.6902
+    0.9529    0.7961    0.2353
+    0.6196    0.1608    0.1294
+    0.8549    0.9569    0.9922
+         0    0.7059    0.6745
+    0.7725    0.8471    0.3686
+         0    0.7294    0.8980
+    0.8549    0.2196    0.2392
+    1.0000    0.9216    0.3176
+    0.8627    0.7294    0.6314
+    0.9961    0.9020    0.8235
+    1.0000    0.6471    0.2196
+         0    0.6275    0.3686
+    ];
     
     end
 end

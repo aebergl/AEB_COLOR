@@ -8,9 +8,9 @@ function [palette] = GetPalette( varargin )
 %   [PaletteIds] = GetPalette('GetPaletteIds') return the list of valid palette ids
 %
 %   Current valid palettes are: 'JCO','nejm','Lancet','Science','Nature',
-%   'lines','aeb01','ETS01','ETS02','Yun_LAML,'TCGA33'
+%   'lines','Colors','aeb01','ETS01','ETS02','Yun_LAML,'TCGA33'
 
-ValidPalettIds={'JCO','nejm','Lancet','Science','Nature','lines','aeb01','ETS01','ETS02','Yun_LAML','TCGA33'};
+ValidPalettIds={'JCO','nejm','Lancet','Science','Nature','lines','Colors','aeb01','ETS01','ETS02','Yun_LAML','TCGA33'};
 
 if nargin < 1 || ~any(strcmpi(varargin{1},[ValidPalettIds,'GetPaletteIds']) )
     palette = ValidPalettIds;
@@ -94,7 +94,20 @@ else
             0.3010    0.7450    0.9330
             0.6350    0.0780    0.1840
             ];
-        
+     elseif strcmpi(Id,'Colors') % GraphPad Prism Colors
+        palette = [
+            3	61	246	
+            238	64	36	
+            83	194	56	
+            175	72	225	
+            243	152	54	
+            0	0	0	
+            159	119	56	
+            1	31	141	
+            108	33	97	
+            163	41	21	
+            ] / 255;
+       
     elseif strcmpi(Id,'aeb01') % My own color palette
         palette = [
             0.737       0.235       0.161
